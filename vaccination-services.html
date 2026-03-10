@@ -51,7 +51,7 @@
     <header id="main-header" class="fixed w-full top-0 z-40 transition-all duration-500 h-20 md:h-24 flex items-center border-b border-black/10 text-black bg-white">
         <div class="w-full max-w-7xl mx-auto px-4 flex justify-between items-center">
             <a href="index.html" id="brand-logo" class="flex items-center shrink-0">
-                <img src="./assets/img/sethi-hospital-logo.webp" alt="Sethi Children Hospital" class="h-10 md:h-14 w-auto object-contain">
+                <img src="./assets/img/sethi-hospital-logo.webp" alt="Sethi Children Hospital" class="h-10 md:h-16 lg:h-20 w-auto object-contain">
             </a>
             <nav class="hidden lg:flex items-center space-x-8">
                 <a href="index.html" class="relative after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full text-sm font-medium tracking-wide uppercase">Home</a>
@@ -383,14 +383,18 @@
         lucide.createIcons();
         AOS.init({ duration: 700, offset: 80, once: true });
 
+        // Header scroll effect (same as first reference)
         const header = document.getElementById('main-header');
+        const logo = document.getElementById('brand-logo');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.classList.add('h-16', 'md:h-20');
-                header.classList.remove('h-20', 'md:h-24');
-            } else {
-                header.classList.remove('h-16', 'md:h-20');
                 header.classList.add('h-20', 'md:h-24');
+                header.classList.remove('h-24', 'md:h-28');
+                // if (logo) logo.querySelector('img')?.classList.remove('brightness-0', 'invert');
+            } else {
+                header.classList.remove('h-20', 'md:h-24');
+                header.classList.add('h-24', 'md:h-28');
+                // if (logo) logo.querySelector('img')?.classList.add('brightness-0', 'invert');
             }
         });
 
